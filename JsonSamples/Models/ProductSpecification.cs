@@ -5,5 +5,5 @@ namespace JsonSamples.Models;
 public class ProductSpecification
 {
     [JsonPropertyName("id")]
-    public string Id { get; set; }
+    public string Id { get; set; } = default!;
 }

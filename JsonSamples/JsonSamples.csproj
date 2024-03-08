@@ -7,4 +7,63 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="JsonFiles\C800W14.json" />
+      <Content Include="JsonFiles\C800W14.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\C801P46.json" />
+      <Content Include="JsonFiles\C801P46.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\C806S54.json" />
+      <Content Include="JsonFiles\C806S54.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\C806S60.json" />
+      <Content Include="JsonFiles\C806S60.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\C806Y26.json" />
+      <Content Include="JsonFiles\C806Y26.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\I801G30.json" />
+      <Content Include="JsonFiles\I801G30.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\I804G68-0.json" />
+      <Content Include="JsonFiles\I804G68-0.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\I804G68-2.json" />
+      <Content Include="JsonFiles\I804G68-2.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\I805D98.json" />
+      <Content Include="JsonFiles\I805D98.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\I805G58.json" />
+      <Content Include="JsonFiles\I805G58.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\M800K41.json" />
+      <Content Include="JsonFiles\M800K41.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\M800N06.json" />
+      <Content Include="JsonFiles\M800N06.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\M800S03-0.json" />
+      <Content Include="JsonFiles\M800S03-0.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="JsonFiles\M800S03-2.json" />
+      <Content Include="JsonFiles\M800S03-2.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>

@@ -1,38 +1,33 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using JsonSamples.Models;
 using System.Text.Json;
+using JsonSamples.Samples;
 
-Console.WriteLine("Hello, World!");
+namespace JsonSamples;
 
-var files = new Dictionary<string, Root?>
+public static class Program
 {
-    {"C800W14", null},
-    {"C801P46", null},
-    {"C806S54", null},
-    {"C806S60", null},
-    {"C806Y26", null},
-    {"I801G30", null},
-    {"I804G68-0", null},
-    {"I804G68-2", null},
-    {"I805D98", null},
-    {"I805G58", null},
-    {"M800K41", null},
-    {"M800N06", null},
-    {"M800S03-0", null},
-    {"M800S03-2", null}
-};
-
-
-foreach (KeyValuePair<string,Root> kvp in files)
-{
-    string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), $"code/json/{kvp.Key}.json");
-    string json = File.ReadAllText(path);
-    Root? root = JsonSerializer.Deserialize<Root>(json, JsonSerializerOptions.Default);
-
-    if (root is not null)
+    public static void Main(string[] _)
     {
-        files[kvp.Key] = root;
+        Console.WriteLine("Hello! We are going to read a collection of json files, do queries on LINQ and to return specific data.");
+
+        DirectoryInfo directoryInfo = new("JsonFiles");
+        if (!directoryInfo.Exists) return;
+        FileInfo[] files = directoryInfo.GetFiles("*.json");
+        List<Order> orders = new List<Order>();
+        foreach (FileInfo fileInfo in files)
+        {
+            string json = File.ReadAllText(Path.Combine(fileInfo.Directory!.FullName, fileInfo.Name));
+            Order? root = JsonSerializer.Deserialize<Order>(json, JsonSerializerOptions.Default);
+
+            if (root is not null)
+            {
+                orders.Add(root);
+            }
+        }
+
+        DateTime startDate = DateTime.Now.AddYears(-3);
+        DateTime endDate = DateTime.Now;
+        orders.SelectOrdersByRange(startDate, endDate);
     }
 }
-
-Console.ReadLine();
