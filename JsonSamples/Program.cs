@@ -18,11 +18,11 @@ public static class Program
         foreach (FileInfo fileInfo in files)
         {
             string json = File.ReadAllText(Path.Combine(fileInfo.Directory!.FullName, fileInfo.Name));
-            Order? root = JsonSerializer.Deserialize<Order>(json, JsonSerializerOptions.Default);
+            Order? order = JsonSerializer.Deserialize<Order>(json, JsonSerializerOptions.Default);
 
-            if (root is not null)
+            if (order is not null)
             {
-                orders.Add(root);
+                orders.Add(order);
             }
         }
 
