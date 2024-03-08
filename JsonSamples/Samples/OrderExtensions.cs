@@ -12,10 +12,37 @@ public static class OrderExtensions
             select order;
         
         Console.WriteLine("1. Select orders by range");
-        // TODO Which data are we going to show?
         foreach (Order order in result)
         {
             Console.WriteLine($"{order.ExternalId} | Date: {order.RequestedCompletionDate.ToLongDateString()} | OrderItems: {order.OrderItems.Count}");
+        }
+        Console.WriteLine("");
+    }
+
+    public static void SelectOrdersAdded(this IList<Order> orders)
+    {
+        var result = (from order in orders
+            where order.OrderItems.Any(x => x.Action == "add")
+            select order).ToList();
+
+        result.ForEach(x =>
+        {
+            List<OrderItem> orderItems = new();
+            foreach (OrderItem orderItem in x.OrderItems)
+            {
+                if (orderItem.Action == "add")
+                {
+                    orderItems.Add(orderItem);
+                }
+                
+                x.OrderItems = orderItems;
+            }
+        });
+        
+        Console.WriteLine("2. Select orders that have components added");
+        foreach (Order order in result)
+        {
+            Console.WriteLine($"{order.ExternalId} | Date: {order.RequestedCompletionDate.ToLongDateString()} | OrderItems: {string.Join(", ", order.OrderItems.Select(x => x.Id))}");
         }
     }
 }

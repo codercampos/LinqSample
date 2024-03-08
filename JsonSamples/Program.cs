@@ -10,6 +10,7 @@ public static class Program
     public static void Main(string[] _)
     {
         Console.WriteLine("Hello! We are going to read a collection of json files, do queries on LINQ and to return specific data.");
+        Console.WriteLine("");
 
         DirectoryInfo directoryInfo = new("JsonFiles");
         if (!directoryInfo.Exists) return;
@@ -29,5 +30,6 @@ public static class Program
         DateTime startDate = DateTime.Now.AddYears(-3);
         DateTime endDate = DateTime.Now;
         orders.SelectOrdersByRange(startDate, endDate);
+        orders.SelectOrdersAdded();
     }
 }
